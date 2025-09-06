@@ -6,3 +6,4 @@ from routes import trivia
 from routes import ticketing
 from routes import princess_diaries
 from routes import safeguard
+from routes import spy_net
