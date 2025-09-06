@@ -1,18 +1,13 @@
-import json
+from flask import Flask, jsonify
 import logging
 
-from flask import request
-
-from routes import app
-
-logger = logging.getLogger(__name__)
-
+app = Flask(__name__)
 
 @app.route('/trivia', methods=['GET'])
 def evaluate():
-    data = request.get_json()
-    logging.info("data sent for evaluation {}".format(data))
-    input_value = data.get("input")
-    result = input_value * input_value
+    result = {"answers": [4, 1, 2, 2, 3, 4, 4, 5, 4]}
     logging.info("My result :{}".format(result))
-    return json.dumps(result)
+    return jsonify(result)
+
+if __name__ == "__main__":
+    app.run(debug=True)
