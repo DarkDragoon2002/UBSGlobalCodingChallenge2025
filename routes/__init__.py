@@ -1,5 +1,5 @@
 from flask import Flask
 
 app = Flask(__name__)
-import routes.square
-import routes.trivia
+from . import square
+from . import trivia

@@ -1,6 +1,8 @@
 from flask import Flask, jsonify
 import logging
 
+from . import app
+
 app = Flask(__name__)
 
 @app.route('/trivia', methods=['GET'])

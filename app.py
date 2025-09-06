@@ -2,6 +2,7 @@ import logging
 import socket
 
 from routes import app
+from routes import trivia
 
 logger = logging.getLogger(__name__)
 
