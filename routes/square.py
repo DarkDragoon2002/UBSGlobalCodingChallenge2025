@@ -1,18 +1,15 @@
 import json
 import logging
 
-from flask import request
+from flask import request, jsonify
 
 from routes import app
 
 logger = logging.getLogger(__name__)
 
-
-@app.route('/square', methods=['POST'])
+@app.route('/square', methods=['GET', 'POST'])
 def evaluate():
+    if request.method == 'GET':
+        return jsonify({"usage": "POST JSON like { \"input\": 5 } to this endpoint."})
     data = request.get_json()
-    logging.info("data sent for evaluation {}".format(data))
-    input_value = data.get("input")
-    result = input_value * input_value
-    logging.info("My result :{}".format(result))
-    return json.dumps(result)
+    return jsonify(data["input"] * data["input"])
